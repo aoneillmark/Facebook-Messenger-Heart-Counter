@@ -1,2 +1,5 @@
-Data/
-Results/
+/Data/*
+!/Data/.gitkeep
+
+/Results/*
+!/Results/.gitkeep
