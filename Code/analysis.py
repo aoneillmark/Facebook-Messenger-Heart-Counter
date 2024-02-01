@@ -2,7 +2,7 @@ import os
 import json
 import matplotlib.pyplot as plt
 
-def analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, six_heart_messages):
+def analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, x_num_heart_messages, x=5):
     heart_emoji = "\u00e2\u009d\u00a4"  # Define the unicode for the heart emoji reaction
 
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -15,10 +15,10 @@ def analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, si
         
         # Count heart reactions for this message
         heart_count = sum(1 for reaction in message.get("reactions", []) if reaction["reaction"] == heart_emoji)
-        if heart_count == 5:
-            # Save messages with exactly 6 heart reactions
+        if heart_count == x:
+            # Save messages with exactly 5 heart reactions
             content = message.get("content", "Message with media or other content")
-            six_heart_messages.append((sender, content))
+            x_num_heart_messages.append((sender, content))
         
         # Update heart counts for users based on reactions
         for reaction in message.get("reactions", []):
@@ -34,7 +34,7 @@ def analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, si
 # Initialize the data structures
 aggregated_user_hearts = {}
 user_messages_count = {}
-six_heart_messages = []  # List to store messages with exactly 6 heart reactions
+x_num_heart_messages = []  # List to store messages with exactly X number of heart reactions
 
 # Assuming you've already defined data_directory_path and json_files as before
 data_directory_path = "./Data"
@@ -43,7 +43,7 @@ json_files = [f for f in os.listdir(data_directory_path) if f.endswith('.json')]
 # Perform the analysis
 for json_file in json_files:
     file_path = os.path.join(data_directory_path, json_file)
-    analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, six_heart_messages)
+    analyze_json_file(file_path, aggregated_user_hearts, user_messages_count, x_num_heart_messages)
 
 
 # Calculate the average number of heart reactions per message for each user
