@@ -8,7 +8,7 @@ Example of results:
 ![alt text](https://github.com/aoneillmark/Facebook-Messenger-Heart-Counter/blob/main/Results/average_heart_reactions.png?raw=true)
 
 ![alt text](https://github.com/aoneillmark/Facebook-Messenger-Heart-Counter/blob/main/Results/messages_vs_heart_reactions.png?raw=true)
-^ I quite like this one because I've shown that all of us in the groupchat receive "heart" reactions roughly the same (with some non-linearity for the less active members), some of us just talk more and hence get more hearts!
+^ I quite like this one because I've shown that all of us in the groupchat receive "heart" reactions roughly the same, some of us just talk more and hence get more hearts!
 
 Instructions:
 Download your Messenger history from Facebook as JSON files. (https://www.facebook.com/help/messenger-app/677912386869109)
